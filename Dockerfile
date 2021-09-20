@@ -10,7 +10,7 @@ RUN pip3 install -U pip
 
 # Installing NodeJS
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt install -y nodejs && \
+    apt-get install -y nodejs && \
     npm i -g npm
 
 # Copying Requirements
