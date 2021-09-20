@@ -19,8 +19,8 @@ COPY requirements.txt /requirements.txt
 # Installing Requirements
 RUN cd /
 RUN pip3 install -U -r requirements.txt
-RUN mkdir /VcVideoPlayer
-WORKDIR /VcVideoPlayer
+RUN mkdir /VcVideoPlay
+WORKDIR /VcVideoPlay
 COPY start.sh /start.sh
 
 # Running VcVideoPlayer
