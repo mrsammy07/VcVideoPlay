@@ -30,6 +30,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from utils import delete, download, get_admins, is_admin, get_buttons, get_link, leave_call, play, get_playlist_str, send_playlist, shuffle_playlist, start_stream, stream_from_link
 
 admin_filter=filters.create(is_admin)
+TGGIF = "https://telegra.ph/file/934b148c3075e4f1f26f1.mp4"
 
 
 @Client.on_message(filters.command(["play", f"play@{Config.BOT_USERNAME}"]) & (filters.chat(Config.CHAT_ID) | filters.private | filters.chat(Config.LOG_GROUP)))
@@ -44,15 +45,15 @@ async def add_to_playlist(_, message: Message):
     yturl=""
     ysearch=""
     if message.reply_to_message and message.reply_to_message.video:
-        msg = await message.reply_text("⚡️")
+        msg = await message.reply_animation(TGGIF, caption="...")
         type='video'
         m_video = message.reply_to_message.video       
     elif message.reply_to_message and message.reply_to_message.document:
-        msg = await message.reply_text("⚡️")
+        msg = await message.reply_animation(TGGIF, caption="...")
         m_video = message.reply_to_message.document
         type='video'
         if not "video" in m_video.mime_type:
-            k=await msg.edit("⛔️ **Invalid Video File Provided !**")
+            k=await msg.edit_caption("⛔️ **Invalid Video File Provided !**")
             await delete(k)
             return
     else:
@@ -87,11 +88,11 @@ async def add_to_playlist(_, message: Message):
         await msg.edit("➕ **Media Added To Playlist !**")
     if type=="youtube" or type=="query":
         if type=="youtube":
-            msg = await message.reply_text("🔎")
+            msg = await message.reply_animation(TGGIF, caption="🔎")
             url=yturl
         elif type=="query":
             try:
-                msg = await message.reply_text("🔎")
+                msg = await message.reply_animation(TGGIF, caption="🔎")
                 ytquery=ysearch
                 results = YoutubeSearch(ytquery, max_results=1).to_dict()
                 url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -137,9 +138,9 @@ async def add_to_playlist(_, message: Message):
         await delete(msg)
     pl=await get_playlist_str()
     if message.chat.type == "private":
-        await message.reply_text(pl, reply_markup=await get_buttons() ,disable_web_page_preview=True)        
+        await message.reply_animation(TGGIF, caption=pl, reply_markup=await get_buttons() ,disable_web_page_preview=True)        
     elif not Config.LOG_GROUP and message.chat.type == "supergroup":
-        await message.reply_text(pl, disable_web_page_preview=True, reply_markup=await get_buttons())          
+        await message.reply_animation(TGGIF, caption=pl, disable_web_page_preview=True, reply_markup=await get_buttons())          
     for track in Config.playlist[:2]:
         await download(track)
 
