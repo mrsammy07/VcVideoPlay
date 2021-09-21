@@ -48,6 +48,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pytgcalls.types.input_stream import InputAudioStream, InputVideoStream, AudioParameters, VideoParameters
 
 ffmpeg_log = open("ffmpeg.txt", "w+")
+TGGIF = "https://telegra.ph/file/934b148c3075e4f1f26f1.mp4"
 
 
 async def play():
@@ -435,7 +436,7 @@ async def send_playlist():
         pl = await get_playlist_str()
         if Config.msg.get('playlist') is not None:
             await Config.msg['playlist'].delete()
-        Config.msg['playlist'] = await send_text(pl)
+        Config.msg['playlist'] = await send_animation(TGGIF, caption=pl)
 
 
 async def send_text(text):
