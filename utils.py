@@ -445,7 +445,6 @@ async def send_text(text):
         TGGIF,
         caption=text,
         reply_markup=await get_buttons(),
-        disable_web_page_preview=True,
         disable_notification=True
     )
     return message
