@@ -436,13 +436,14 @@ async def send_playlist():
         pl = await get_playlist_str()
         if Config.msg.get('playlist') is not None:
             await Config.msg['playlist'].delete()
-        Config.msg['playlist'] = await send_animation(TGGIF, caption=pl)
+        Config.msg['playlist'] = await send_text(pl)
 
 
 async def send_text(text):
-    message = await bot.send_message(
+    message = await bot.send_animation(
         Config.LOG_GROUP,
-        text,
+        TGGIF,
+        caption=text,
         reply_markup=await get_buttons(),
         disable_web_page_preview=True,
         disable_notification=True
