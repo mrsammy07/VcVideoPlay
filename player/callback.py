@@ -1,7 +1,7 @@
 
 from asyncio import sleep
 from config import Config
-from logger import LOGGER
+from helpers.logger import LOGGER
 from pyrogram import Client
 from pyrogram.errors import MessageNotModified
 from helpers.private import HOME_TEXT, HELP_TEXT
