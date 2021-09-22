@@ -11,7 +11,7 @@ from bot import bot
 from config import Config
 from asyncio import sleep
 from signal import SIGINT
-from logger import LOGGER
+from helpers.logger import LOGGER
 from threading import Thread
 from datetime import datetime
 from pytgcalls import PyTgCalls
