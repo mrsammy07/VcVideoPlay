@@ -9,6 +9,10 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InputMedi
 
 
 HOME_TEXT = "🎉 **Wtsup [{}](tg://user?id={})**, \n\nI Am **VcVideoPlayer**. \n`Lets Enjoy Cinematic View  of Group Video Player With Your Friends ❤️😊` \n\n**Made With 💞 By @TeamDeeCode!**"
+STRT_TEXT = """
+🔥 __**I Am Alive**__ :
+"""
+PM_TEXT = "✨ **Contact me in PM to get the list of possible commands.**"
 HELP_TEXT = """
 🍃 --**SETTINGS**-- :
 
@@ -48,7 +52,7 @@ async def start(client, message):
             ]
             ]
     reply_markup = InlineKeyboardMarkup(buttons)
-    await message.reply_text(HOME_TEXT.format(message.from_user.first_name, message.from_user.id), reply_markup=reply_markup)
+    await message.reply_text(STRT_TEXT.format(message.from_user.first_name, message.from_user.id), reply_markup=reply_markup)
 
 
 @Client.on_message(filters.command(["help", f"help@{Config.BOT_USERNAME}"]))
@@ -62,7 +66,7 @@ async def show_help(client, message):
     if Config.msg.get('help') is not None:
         await Config.msg['help'].delete()
     Config.msg['help'] = await message.reply_text(
-        HELP_TEXT,
+        PM_TEXT,
         reply_markup=reply_markup
         )
 
