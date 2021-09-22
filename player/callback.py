@@ -1,7 +1,3 @@
-"""
-VideoPlayerBot, Telegram Video Chat Bot
-Copyright (c) 2021  Asm Safone <https://github.com/AsmSafone>
-"""
 
 from asyncio import sleep
 from config import Config
