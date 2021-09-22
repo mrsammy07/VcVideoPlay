@@ -164,7 +164,7 @@ async def show_player(client, m: Message):
         elif Config.STREAM_LINK:
             title=f"▶️ <b>Streaming [Given URL]({data['file']}) !</b>"
         else:
-            title=f"▶️ <b>Streaming [Startup Stream]({Config.STREAM_URL}) !</b>"
+            title=f"🎉 <b>Yooi Streaming [Startup Stream]({Config.STREAM_URL}) ! ▶️</b>"
     if m.chat.type == "private":
         await m.reply_text(
             title,
@@ -223,7 +223,7 @@ async def seek_playout(client, m: Message):
             elif Config.STREAM_LINK:
                 title=f"▶️ <b>Streaming [Given URL]({data['file']}) !</b>"
             else:
-                title=f"▶️ <b>Streaming [Startup Stream]({Config.STREAM_URL}) !</b>"
+                title=f"🎉 <b>Yooi Streaming [Startup Stream]({Config.STREAM_URL}) ▶️ !</b>"
         s=await m.reply_text(f"{title}", reply_markup=await get_buttons(), disable_web_page_preview=True)
         await delete(s)
     else:
