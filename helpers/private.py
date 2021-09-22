@@ -9,24 +9,20 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InputMedi
 
 
 HOME_TEXT = "🎉 **Wtsup [{}](tg://user?id={})**, \n\nI Am **VcVideoPlayer**. \n`Lets Enjoy Cinematic View  of Group Video Player With Your Friends ❤️😊` \n\n**Made With 💞 By @TeamDeeCode!**"
+STRT_TEXT = "🔥 **I Am Alive**"
+PM_TEXT = "✨ **Contact me in PM to get the list of possible commands.**"
 HELP_TEXT = """
-🏷️ --**Setting Up**-- :
+🍃 --**SETTINGS**-- :
 
-\u2022 ᴀᴅᴅ ᴛʜᴇ ʙᴏᴛ ᴀɴᴅ ᴜꜱᴇʀ ᴀᴄᴄᴏᴜɴᴛ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴀᴅᴍɪɴ ʀɪɢʜᴛꜱ.
-\u2022 ꜱᴛᴀʀᴛ ᴀ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ & ʀᴇꜱᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ ɪꜰ ɴᴏᴛ ᴊᴏɪɴᴇᴅ ᴛᴏ ᴠᴄ.
-\u2022 ᴜꜱᴇ /ᴘʟᴀʏ [ᴠɪᴅᴇᴏ ɴᴀᴍᴇ] ᴏʀ ᴜꜱᴇ /ᴘʟᴀʏ ᴀꜱ ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴀɴ ᴠɪᴅᴇᴏ ꜰɪʟᴇ ᴏʀ ʏᴏᴜᴛᴜʙᴇ ʟɪɴᴋ.
+\u2022 `Add me to your group and my assistant too make admin both!`
+\u2022 `Start a voice chat in your group & Restart the boy if not join to vc.`
+\u2022 `Try /stream [video name] and /stream reply to amy video and yt link!`
 
-🏷️ --**ᴄᴏᴍᴍᴏɴ ᴄᴏᴍᴍᴀɴᴅꜱ**-- :
-
-\u2022 `/start` - start the bot
-\u2022 `/help` - shows the help
-\u2022 `/playlist` - shows the playlist
-
-🏷️ --**ᴀᴅᴍɪɴꜱ ᴄᴏᴍᴍᴀɴᴅꜱ**-- :
+🍃 --**COMMANDS**-- :
 
 \u2022 `/seek` - seek the video
 \u2022 `/skip` - skip current video
-\u2022 `/stream` - start live stream
+\u2022 `/live` - start live stream
 \u2022 `/pause` - pause playing video
 \u2022 `/resume` - resume playing video
 \u2022 `/mute` - mute the vc userbot
@@ -35,13 +31,13 @@ HELP_TEXT = """
 \u2022 `/shuffle` - shuffle the playlist
 \u2022 `/volume` - change volume (0-200)
 \u2022 `/replay` - play from the beginning
-\u2022 `/clrlist` - clear the playlist queue
+\u2022 `/clear` - clear the playlist queue
 \u2022 `/restart` - update & restart the bot
 \u2022 `/setvar` - set/change heroku configs
 \u2022 `/getlogs` - get the ffmpeg & bot logs
 
-© **ᴘᴏᴡᴇʀᴇᴅ ʙʏ** : 
-**@DeeCodeBots** 👑
+© **Powered By** : 
+**@TeamDeeCoDe** 👩‍💻
 """
 
 admin_filter=filters.create(is_admin) 
@@ -50,18 +46,7 @@ admin_filter=filters.create(is_admin)
 async def start(client, message):
     buttons = [
             [
-                InlineKeyboardButton("Sᴇᴀʀᴄʜ", switch_inline_query_current_chat=""),
-            ],
-            [
-                InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/DeeCodeBots"),
-                InlineKeyboardButton("Gʀᴏᴜᴘ", url="https://t.me/DeCodeSupport"),
-            ],
-            [
-                InlineKeyboardButton("Bᴏᴛ Lɪꜱᴛ", url="https://t.me/otherBotList"),
-                InlineKeyboardButton("Sᴏᴜʀᴄᴇ", url="https://github.com/TeamDeeCode/VcVideoPlayer/tree/alpha"),
-            ],
-            [
-                InlineKeyboardButton("Hᴇʟᴘ & Cᴏᴍᴍᴀɴᴅꜱ", callback_data="help"),
+                InlineKeyboardButton("Support", url="t.me/DeeCodeBots"),
             ]
             ]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -87,12 +72,12 @@ async def show_help(client, message):
 @Client.on_message(filters.command(["restart", "update", f"restart@{Config.BOT_USERNAME}", f"update@{Config.BOT_USERNAME}"]) & admin_filter)
 async def update_handler(client, message):
     if Config.HEROKU_APP:
-        k=await message.reply_text("🔄 **ʜᴇʀᴏᴋᴜ ᴅᴇᴛᴇᴄᴛᴇᴅ, \nʀᴇꜱᴛᴀʀᴛɪɴɢ ᴀᴘᴘ ᴛᴏ ᴜᴘᴅᴀᴛe!**")
+        k=await message.reply_text("✨ **Heroku Detected, \nRestarting Your App!**")
     else:
-        k=await message.reply_text("🔄 **ʀᴇʙᴏᴏᴛɪɴɢ ...**")
+        k=await message.reply_text("🔄 **Processing...**")
     await update()
     try:
-        await k.edit("☑️ **ʀᴇꜱᴛᴀʀᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ! \nᴊᴏɪɴ @TeamDeeCode ꜰᴏʀ ᴍᴏʀᴇ!**")
+        await k.edit("🎉 **Restarted Successfully!**")
     except:
         pass
 
@@ -108,11 +93,11 @@ async def get_logs(client, message):
         try:
             await message.reply_media_group(logs)
         except:
-            await message.reply_text("❌ **ᴀɴ ᴇʀʀᴏʀ ᴏᴄᴄᴏᴜʀᴇᴅ !**")
+            await message.reply_text("❌ **An Error Occurred !**")
             pass
         logs.clear()
     else:
-        await message.reply_text("❌ **ɴᴏ ʟᴏɢ ꜰɪʟᴇꜱ ꜰᴏᴜɴᴅ !**")
+        await message.reply_text("❌ **No Logs File Find !**")
 
 
 @Client.on_message(filters.command(["setvar", f"setvar@{Config.BOT_USERNAME}"]) & admin_filter)
@@ -126,7 +111,7 @@ async def set_heroku_var(client, message):
     if " " in message.text:
         cmd, env = message.text.split(" ", 1)
         if  not "=" in env:
-            return await message.reply_text("❗ **You Should Specify The Value For Variable!** \n\nFor Example: \n`/setvar CHAT_ID=-1001313215676`")
+            return await message.reply_text("❗ **You Should Specify The Value For Variable!** \n\nFor Example: \n`/setvar CHAT_ID=-1001173097859`")
         var, value = env.split("=", 2)
         config = Config.HEROKU_APP.config()
         if not value:
@@ -144,7 +129,7 @@ async def set_heroku_var(client, message):
         else:
             m=await message.reply_text(f"⚠️ **Variable Not Found, So Setting As New Var !**")
         await asyncio.sleep(2)
-        await m.edit(f"✅ **Succesfully Set Variable `{var}` With Value `{value}`, Now Restarting To Apply Changes !**")
+        await m.edit(f"🎉 **Succesfully Set Variable `{var}` With Value `{value}`, Now Restarting To Apply Changes !**")
         config[var] = str(value)
     else:
-        await message.reply_text("❗ **You Haven't Provided Any Variable, You Should Follow The Correct Format !** \n\nFor Example: \n• `/setvar CHAT_ID=-1001313215676` to change or set CHAT_ID var. \n• `/setvar REPLY_MESSAGE=` to delete REPLY_MESSAGE var.") 
+        await message.reply_text("❗ **You Haven't Provided Any Variable, You Should Follow The Correct Format !** \n\nFor Example: \n• `/setvar CHAT_ID=-1001173097859` to change or set CHAT_ID var. \n• `/setvar REPLY_MESSAGE=` to delete REPLY_MESSAGE var.") 
