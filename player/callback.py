@@ -4,7 +4,7 @@ from config import Config
 from logger import LOGGER
 from pyrogram import Client
 from pyrogram.errors import MessageNotModified
-from player.commands import HOME_TEXT, HELP_TEXT
+from helpers.private import HOME_TEXT, HELP_TEXT
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from helpers.utils import get_admins, get_buttons, get_playlist_str, mute, pause, restart_playout, resume, seek_file, shuffle_playlist, skip, unmute
 
