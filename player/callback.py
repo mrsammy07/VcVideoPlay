@@ -132,7 +132,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except MessageNotModified:
             pass
 
-    elif query.data.lower() == "help":
+    elif query.data.lower() == "pm":
         buttons = [
             [
                 InlineKeyboardButton("Cʟᴏꜱᴇ", callback_data="close"),
@@ -147,7 +147,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except MessageNotModified:
             pass
 
-    elif query.data.lower() == "home":
+    elif query.data.lower() == "strt":
         buttons = [
             [
                 InlineKeyboardButton("Sᴇᴀʀᴄʜ 11", switch_inline_query_current_chat=""),
