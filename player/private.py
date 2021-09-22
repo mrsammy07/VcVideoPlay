@@ -42,7 +42,8 @@ admin_filter=filters.create(is_admin)
 
 @Client.on_message(filters.command(["start", f"start@{Config.BOT_USERNAME}"]))
 async def start(client, message):
-    buttons = [
+    if message.chat.type == 'private':
+        buttons = [
             [
                 InlineKeyboardButton("Sᴇᴀʀᴄʜ", switch_inline_query_current_chat=""),
             ],
@@ -58,23 +59,36 @@ async def start(client, message):
                 InlineKeyboardButton("Hᴇʟᴘ & Cᴏᴍᴍᴀɴᴅꜱ", callback_data="help"),
             ]
             ]
-    reply_markup = InlineKeyboardMarkup(buttons)
-    await message.reply_text(HOME_TEXT.format(message.from_user.first_name, message.from_user.id), reply_markup=reply_markup)
-
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_text(HOME_TEXT.format(message.from_user.first_name, message.from_user.id), reply_markup=reply_markup)
+    else:
+        await message.reply_text(**🌟 I'm Alive 🔥**)
 
 @Client.on_message(filters.command(["help", f"help@{Config.BOT_USERNAME}"]))
 async def show_help(client, message):
-    buttons = [
+    if message.chat.type == 'private':
+        buttons = [
             [
                 InlineKeyboardButton("Cʟᴏꜱᴇ", callback_data="close"),
             ]
             ]
-    reply_markup = InlineKeyboardMarkup(buttons)
-    if Config.msg.get('help') is not None:
-        await Config.msg['help'].delete()
-    Config.msg['help'] = await message.reply_text(
-        HELP_TEXT,
-        reply_markup=reply_markup
+        reply_markup = InlineKeyboardMarkup(buttons)
+        if Config.msg.get('help') is not None:
+            await Config.msg['help'].delete()
+        Config.msg['help'] = await message.reply_text(
+            HELP_TEXT,
+            reply_markup=reply_markup
+            )
+    else:
+        await message.reply_text(
+            "**Contact me in PM to get a List of Commands ✨**", 
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("Hᴇʟᴘ ❔", url=f"http://t.me/{Config.BOT_USERNAME}?start=help")
+                    ]
+                ]
+            )
         )
 
 
