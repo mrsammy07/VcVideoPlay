@@ -7,7 +7,7 @@ from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent, In
 
 buttons = [
             [
-                InlineKeyboardButton("Hᴇʟᴘ & Cᴏᴍᴍᴀɴᴅꜱ", callback_data="help"),
+                InlineKeyboardButton("Bᴏᴛ Lɪꜱᴛ", url="https://t.me/otherBotList"),
             ],
             [
                 InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/DeeCodeBots"),
@@ -20,9 +20,9 @@ buttons = [
 
 def get_cmd(dur):
     if dur:
-        return "/play"
-    else:
         return "/stream"
+    else:
+        return "/live"
 
 @Client.on_inline_query()
 async def search(client, query):
