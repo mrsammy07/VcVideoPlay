@@ -62,7 +62,7 @@ async def start(client, message):
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(HOME_TEXT.format(message.from_user.first_name, message.from_user.id), reply_markup=reply_markup)
     else:
-        await message.reply_text(**🌟 I'm Alive 🔥**)
+        await message.reply_text(f"**🌟 I'm Alive 🔥**")
 
 @Client.on_message(filters.command(["help", f"help@{Config.BOT_USERNAME}"]))
 async def show_help(client, message):
