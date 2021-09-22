@@ -48,11 +48,22 @@ admin_filter=filters.create(is_admin)
 async def start(client, message):
     buttons = [
             [
-                InlineKeyboardButton("Support", url="t.me/DeeCodeBots"),
+                InlineKeyboardButton("Sᴇᴀʀᴄʜ", switch_inline_query_current_chat=""),
+            ],
+            [
+                InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/DeeCodeBots"),
+                InlineKeyboardButton("Gʀᴏᴜᴘ", url="https://t.me/DeCodeSupport"),
+            ],
+            [
+                InlineKeyboardButton("Bᴏᴛ Lɪꜱᴛ", url="https://t.me/otherBotList"),
+                InlineKeyboardButton("Sᴏᴜʀᴄᴇ", url="https://github.com/TeamDeeCode/VcVideoPlayer/tree/alpha"),
+            ],
+            [
+                InlineKeyboardButton("Hᴇʟᴘ & Cᴏᴍᴍᴀɴᴅꜱ", callback_data="help"),
             ]
             ]
     reply_markup = InlineKeyboardMarkup(buttons)
-    await message.reply_text(STRT_TEXT.format(message.from_user.first_name, message.from_user.id), reply_markup=reply_markup)
+    await message.reply_text(HOME_TEXT.format(message.from_user.first_name, message.from_user.id), reply_markup=reply_markup)
 
 
 @Client.on_message(filters.command(["help", f"help@{Config.BOT_USERNAME}"]))
@@ -66,7 +77,7 @@ async def show_help(client, message):
     if Config.msg.get('help') is not None:
         await Config.msg['help'].delete()
     Config.msg['help'] = await message.reply_text(
-        PM_TEXT,
+        HELP_TEXT,
         reply_markup=reply_markup
         )
 
