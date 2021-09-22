@@ -150,7 +150,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data.lower() == "home":
         buttons = [
             [
-                InlineKeyboardButton("Sᴇᴀʀᴄʜ", switch_inline_query_current_chat=""),
+                InlineKeyboardButton("Sᴇᴀʀᴄʜ 11", switch_inline_query_current_chat=""),
             ],
             [
                 InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/DeeCodeBots"),
