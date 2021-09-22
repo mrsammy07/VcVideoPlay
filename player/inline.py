@@ -1,5 +1,5 @@
 from config import Config
-from logger import LOGGER
+from helpers.logger import LOGGER
 from pyrogram import Client, errors
 from youtubesearchpython import VideosSearch
 from pyrogram.handlers import InlineQueryHandler
