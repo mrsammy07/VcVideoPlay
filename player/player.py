@@ -15,7 +15,7 @@ admin_filter=filters.create(is_admin)
 TGGIF = "https://telegra.ph/file/934b148c3075e4f1f26f1.mp4"
 
 
-@Client.on_message(filters.command(["play", f"play@{Config.BOT_USERNAME}"]) & (filters.chat(Config.CHAT_ID) | filters.private | filters.chat(Config.LOG_GROUP)))
+@Client.on_message(filters.command(["stream", f"stream@{Config.BOT_USERNAME}"]) & (filters.chat(Config.CHAT_ID) | filters.private | filters.chat(Config.LOG_GROUP)))
 async def add_to_playlist(_, message: Message):
     if Config.ADMIN_ONLY == "True":
         admins = await get_admins(Config.CHAT_ID)
@@ -153,7 +153,7 @@ async def shuffle_play_list(client, m: Message):
             await delete(k)
 
 
-@Client.on_message(filters.command(["clrlist", f"clrlist@{Config.BOT_USERNAME}"]) & admin_filter & (filters.chat(Config.CHAT_ID) | filters.private | filters.chat(Config.LOG_GROUP)))
+@Client.on_message(filters.command(["clear", f"clear@{Config.BOT_USERNAME}"]) & admin_filter & (filters.chat(Config.CHAT_ID) | filters.private | filters.chat(Config.LOG_GROUP)))
 async def clear_play_list(client, m: Message):
     if not Config.CALL_STATUS:
         k=await m.reply_text("🤖 **Didn't Joined Video Chat !**")
@@ -169,7 +169,7 @@ async def clear_play_list(client, m: Message):
     await start_stream()
 
 
-@Client.on_message(filters.command(["stream", f"stream@{Config.BOT_USERNAME}"]) & admin_filter & (filters.chat(Config.CHAT_ID) | filters.private | filters.chat(Config.LOG_GROUP)))
+@Client.on_message(filters.command(["live", f"live@{Config.BOT_USERNAME}"]) & admin_filter & (filters.chat(Config.CHAT_ID) | filters.private | filters.chat(Config.LOG_GROUP)))
 async def stream(client, m: Message):
     if m.reply_to_message:
         link=m.reply_to_message.text
@@ -199,14 +199,14 @@ async def stream(client, m: Message):
     await delete(s)
 
 
-admincmds=["join", "leave", "pause", "resume", "skip", "restart", "volume", "shuffle", "clrlist", "update", "replay", "getlogs", "stream", "mute", "unmute", "seek", f"mute@{Config.BOT_USERNAME}", f"unmute@{Config.BOT_USERNAME}", f"seek@{Config.BOT_USERNAME}", f"stream@{Config.BOT_USERNAME}", f"getlogs@{Config.BOT_USERNAME}", f"replay@{Config.BOT_USERNAME}", f"join@{Config.BOT_USERNAME}", f"leave@{Config.BOT_USERNAME}", f"pause@{Config.BOT_USERNAME}", f"resume@{Config.BOT_USERNAME}", f"skip@{Config.BOT_USERNAME}", f"restart@{Config.BOT_USERNAME}", f"volume@{Config.BOT_USERNAME}", f"shuffle@{Config.BOT_USERNAME}", f"clrlist@{Config.BOT_USERNAME}", f"update@{Config.BOT_USERNAME}"]
+admincmds=["join", "leave", "pause", "resume", "skip", "restart", "volume", "shuffle", "clrlist", "update", "replay", "getlogs", "live", "mute", "unmute", "seek", f"mute@{Config.BOT_USERNAME}", f"unmute@{Config.BOT_USERNAME}", f"seek@{Config.BOT_USERNAME}", f"live@{Config.BOT_USERNAME}", f"getlogs@{Config.BOT_USERNAME}", f"replay@{Config.BOT_USERNAME}", f"join@{Config.BOT_USERNAME}", f"leave@{Config.BOT_USERNAME}", f"pause@{Config.BOT_USERNAME}", f"resume@{Config.BOT_USERNAME}", f"skip@{Config.BOT_USERNAME}", f"restart@{Config.BOT_USERNAME}", f"volume@{Config.BOT_USERNAME}", f"shuffle@{Config.BOT_USERNAME}", f"clear@{Config.BOT_USERNAME}", f"update@{Config.BOT_USERNAME}"]
 
 @Client.on_message(filters.command(admincmds) & ~admin_filter & (filters.chat(Config.CHAT_ID) | filters.private | filters.chat(Config.LOG_GROUP)))
 async def notforu(_, m: Message):
     k=await _.send_cached_media(chat_id=m.chat.id, file_id="CAACAgUAAxkBAAEB1GNhO2oHEh2OqrpucczIprmOIEKZtQACfwMAAjSe9DFG-UktB_TxOh4E", caption="**You Are Not Authorized !!**", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('⚡️ Join Here ⚡️', url='https://t.me/Deecodebots')]]), reply_to_message_id=m.message_id)
     await delete(k)
 
-allcmd = ["play", "playlist", f"play@{Config.BOT_USERNAME}", f"playlist@{Config.BOT_USERNAME}"] + admincmds
+allcmd = ["stream", "playlist", f"stream@{Config.BOT_USERNAME}", f"playlist@{Config.BOT_USERNAME}"] + admincmds
 
 @Client.on_message(filters.command(allcmd) & filters.group & ~(filters.chat(Config.CHAT_ID) | filters.private | filters.chat(Config.LOG_GROUP)))
 async def not_chat(_, m: Message):
