@@ -526,7 +526,7 @@ async def is_admin(_, client, message: Message):
 
 async def get_playlist_str():
     if not Config.playlist:
-        pl = f"▶️ **Streaming [Startup Stream]({Config.STREAM_URL}) !**"
+        pl = f"🎉 **Yooi Streaming [Startup Stream]({Config.STREAM_URL}) ▶️ !**"
     else:
         if len(Config.playlist)>=25:
             tplaylist=Config.playlist[:25]
