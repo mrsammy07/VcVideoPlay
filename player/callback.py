@@ -141,7 +141,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         try:
             await query.message.edit(
-                HELP_TEXT,
+                PM_TEXT,
                 reply_markup=reply_markup
             )
         except MessageNotModified:
@@ -167,7 +167,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         try:
             await query.message.edit(
-                HOME_TEXT.format(query.from_user.first_name, query.from_user.id),
+                STRT_TEXT.format(query.from_user.first_name, query.from_user.id),
                 reply_markup=reply_markup
             )
         except MessageNotModified:
