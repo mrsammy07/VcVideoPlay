@@ -64,7 +64,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif Config.STREAM_LINK:
             title=f"▶️ <b>Streaming [Given URL]({Config.DATA['FILE_DATA']['file']}) !</b>"
         else:
-            title=f"▶️ <b>Streaming [Startup Stream]({Config.STREAM_URL}) !</b>"
+            title=f"🎉 <b>Yooi Streaming [Startup Stream]({Config.STREAM_URL}) ▶️ !</b>"
         try:
             await query.message.edit(f"{title}",
                 disable_web_page_preview=True,
