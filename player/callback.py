@@ -4,7 +4,7 @@ from config import Config
 from helpers.logger import LOGGER
 from pyrogram import Client
 from pyrogram.errors import MessageNotModified
-from helpers.private import HOME_TEXT, HELP_TEXT
+from helpers.private import HOME_TEXT, HELP_TEXT, STRT_TEXT, PM_TEXT
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from helpers.utils import get_admins, get_buttons, get_playlist_str, mute, pause, restart_playout, resume, seek_file, shuffle_playlist, skip, unmute
 
@@ -13,7 +13,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     admins = await get_admins(Config.CHAT_ID)
     if query.from_user.id not in admins and query.data != "help":
         await query.answer(
-            "You're Not Allowed! 🤣",
+            "I Am Not Gonna Help You 🤣",
             show_alert=True
             )
         return
