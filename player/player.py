@@ -12,7 +12,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from helpers.utils import delete, download, get_admins, is_admin, get_buttons, get_link, leave_call, play, get_playlist_str, send_playlist, shuffle_playlist, start_stream, stream_from_link
 
 admin_filter=filters.create(is_admin)
-TGGIF = "https://telegra.ph/file/934b148c3075e4f1f26f1.mp4"
+TGPIC = "https://telegra.ph/file/014ffdd6d0c8c65a91154.jpg"
 
 
 @Client.on_message(filters.command(["stream", f"stream@{Config.BOT_USERNAME}"]) & (filters.chat(Config.CHAT_ID) | filters.private | filters.chat(Config.LOG_GROUP)))
@@ -27,11 +27,11 @@ async def add_to_playlist(_, message: Message):
     yturl=""
     ysearch=""
     if message.reply_to_message and message.reply_to_message.video:
-        msg = await message.reply_animation(TGGIF, caption="...")
+        msg = await message.reply_photo(TGPIC, caption="...")
         type='video'
         m_video = message.reply_to_message.video       
     elif message.reply_to_message and message.reply_to_message.document:
-        msg = await message.reply_animation(TGGIF, caption="...")
+        msg = await message.reply_photo(TGPIC, caption="...")
         m_video = message.reply_to_message.document
         type='video'
         if not "video" in m_video.mime_type:
