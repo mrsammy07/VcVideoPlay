@@ -28,7 +28,7 @@
         "description": "Your Telegram Bot Token, get it from https://t.me/botfather",
         "required": true
       },
-      "SESSION_STRING": {
+      "SESSION_NAME": {
         "description": "User Session String, get it from @genStr_robot. Read readme to learn more",
         "required": true
       },
