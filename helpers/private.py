@@ -8,21 +8,21 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InputMediaDocument
 
 
-HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**, \n\nI'm **VcVideoPlayer**. \nI Can Stream Lives, YouTube Videos & Telegram Video Files On Voice Chat Of Telegram Channels & Groups 😉! \n\n**Made With ❤️ By @TeamDeeCode!**"
+HOME_TEXT = "👋🏻 **ʜɪɪ [{}](tg://user?id={})**, \n\nɪ'ᴍ **𝐕𝐜𝐕𝐢𝐝𝐞𝐨𝐏𝐥𝐚𝐲𝐞𝐫**. \nɪ ᴄᴀɴ ꜱᴛʀᴇᴀᴍ ʟɪᴠᴇꜱ, ʏᴏᴜᴛᴜʙᴇ ᴠɪᴅᴇᴏꜱ & ᴛᴇʟᴇɢʀᴀᴍ ᴠɪᴅᴇᴏ ꜰɪʟᴇꜱ ᴏɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴏꜰ ᴛᴇʟᴇɢʀᴀᴍ ᴄʜᴀɴɴᴇʟꜱ & ɢʀᴏᴜᴘꜱ 😉! \n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❤️ ʙʏ @TeamDeeCode!**"
 HELP_TEXT = """
 🏷️ --**Setting Up**-- :
 
-\u2022 Add the bot and user account in your group with admin rights.
-\u2022 Start a voice chat in your group & restart the bot if not joined to vc.
-\u2022 Use /play [video name] or use /play as a reply to an video file or youtube link.
+\u2022 ᴀᴅᴅ ᴛʜᴇ ʙᴏᴛ ᴀɴᴅ ᴜꜱᴇʀ ᴀᴄᴄᴏᴜɴᴛ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴀᴅᴍɪɴ ʀɪɢʜᴛꜱ.
+\u2022 ꜱᴛᴀʀᴛ ᴀ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ & ʀᴇꜱᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ ɪꜰ ɴᴏᴛ ᴊᴏɪɴᴇᴅ ᴛᴏ ᴠᴄ.
+\u2022 ᴜꜱᴇ /ᴘʟᴀʏ [ᴠɪᴅᴇᴏ ɴᴀᴍᴇ] ᴏʀ ᴜꜱᴇ /ᴘʟᴀʏ ᴀꜱ ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴀɴ ᴠɪᴅᴇᴏ ꜰɪʟᴇ ᴏʀ ʏᴏᴜᴛᴜʙᴇ ʟɪɴᴋ.
 
-🏷️ --**Common Commands**-- :
+🏷️ --**ᴄᴏᴍᴍᴏɴ ᴄᴏᴍᴍᴀɴᴅꜱ**-- :
 
 \u2022 `/start` - start the bot
 \u2022 `/help` - shows the help
 \u2022 `/playlist` - shows the playlist
 
-🏷️ --**Admins Commands**-- :
+🏷️ --**ᴀᴅᴍɪɴꜱ ᴄᴏᴍᴍᴀɴᴅꜱ**-- :
 
 \u2022 `/seek` - seek the video
 \u2022 `/skip` - skip current video
@@ -40,7 +40,7 @@ HELP_TEXT = """
 \u2022 `/setvar` - set/change heroku configs
 \u2022 `/getlogs` - get the ffmpeg & bot logs
 
-© **Powered By** : 
+© **ᴘᴏᴡᴇʀᴇᴅ ʙʏ** : 
 **@DeeCodeBots** 👑
 """
 
@@ -87,12 +87,12 @@ async def show_help(client, message):
 @Client.on_message(filters.command(["restart", "update", f"restart@{Config.BOT_USERNAME}", f"update@{Config.BOT_USERNAME}"]) & admin_filter)
 async def update_handler(client, message):
     if Config.HEROKU_APP:
-        k=await message.reply_text("🔄 **Heroku Detected, \nRestarting App To Update!**")
+        k=await message.reply_text("🔄 **ʜᴇʀᴏᴋᴜ ᴅᴇᴛᴇᴄᴛᴇᴅ, \nʀᴇꜱᴛᴀʀᴛɪɴɢ ᴀᴘᴘ ᴛᴏ ᴜᴘᴅᴀᴛe!**")
     else:
-        k=await message.reply_text("🔄 **Restarting ...**")
+        k=await message.reply_text("🔄 **ʀᴇʙᴏᴏᴛɪɴɢ ...**")
     await update()
     try:
-        await k.edit("✅ **Restarted Successfully! \nJoin @AsmSafone For More!**")
+        await k.edit("☑️ **ʀᴇꜱᴛᴀʀᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ! \nᴊᴏɪɴ @TeamDeeCode ꜰᴏʀ ᴍᴏʀᴇ!**")
     except:
         pass
 
@@ -108,11 +108,11 @@ async def get_logs(client, message):
         try:
             await message.reply_media_group(logs)
         except:
-            await message.reply_text("❌ **An Error Occoured !**")
+            await message.reply_text("❌ **ᴀɴ ᴇʀʀᴏʀ ᴏᴄᴄᴏᴜʀᴇᴅ !**")
             pass
         logs.clear()
     else:
-        await message.reply_text("❌ **No Log Files Found !**")
+        await message.reply_text("❌ **ɴᴏ ʟᴏɢ ꜰɪʟᴇꜱ ꜰᴏᴜɴᴅ !**")
 
 
 @Client.on_message(filters.command(["setvar", f"setvar@{Config.BOT_USERNAME}"]) & admin_filter)
