@@ -2,8 +2,8 @@ import os
 import sys
 import asyncio
 from config import Config
-from logger import LOGGER
-from utils import update, is_admin
+from helpers.logger import LOGGER
+from helpers.utils import update, is_admin
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InputMediaDocument
 
