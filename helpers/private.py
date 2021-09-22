@@ -8,7 +8,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InputMediaDocument
 
 
-HOME_TEXT = "👋🏻 **ʜɪɪ [{}](tg://user?id={})**, \n\nɪ'ᴍ **𝐕𝐜𝐕𝐢𝐝𝐞𝐨𝐏𝐥𝐚𝐲𝐞𝐫**. \nɪ ᴄᴀɴ ꜱᴛʀᴇᴀᴍ ʟɪᴠᴇꜱ, ʏᴏᴜᴛᴜʙᴇ ᴠɪᴅᴇᴏꜱ & ᴛᴇʟᴇɢʀᴀᴍ ᴠɪᴅᴇᴏ ꜰɪʟᴇꜱ ᴏɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴏꜰ ᴛᴇʟᴇɢʀᴀᴍ ᴄʜᴀɴɴᴇʟꜱ & ɢʀᴏᴜᴘꜱ 😉! \n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❤️ ʙʏ @TeamDeeCode!**"
+HOME_TEXT = "🎉 **Wtsup [{}](tg://user?id={})**, \n\nI Am **VcVideoPlayer**. \n`Lets Enjoy Cinematic View  of Group Video Player With Your Friends ❤️😊` \n\n**Made With 💞 By @TeamDeeCode!**"
 HELP_TEXT = """
 🏷️ --**Setting Up**-- :
 
