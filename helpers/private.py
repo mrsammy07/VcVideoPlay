@@ -9,10 +9,6 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InputMedi
 
 
 HOME_TEXT = "🎉 **Wtsup [{}](tg://user?id={})**, \n\nI Am **VcVideoPlayer**. \n`Lets Enjoy Cinematic View  of Group Video Player With Your Friends ❤️😊` \n\n**Made With 💞 By @TeamDeeCode!**"
-STRT_TEXT = """
-🔥 __**I Am Alive**__ :
-"""
-PM_TEXT = "✨ **Contact me in PM to get the list of possible commands.**"
 HELP_TEXT = """
 🍃 --**SETTINGS**-- :
 
