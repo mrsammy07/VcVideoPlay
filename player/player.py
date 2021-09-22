@@ -70,11 +70,11 @@ async def add_to_playlist(_, message: Message):
         await msg.edit("➕ **Media Added To Playlist !**")
     if type=="youtube" or type=="query":
         if type=="youtube":
-            msg = await message.reply_animation(TGGIF, caption="🔎")
+            msg = await message.reply_photo(TGPIC, caption="🔎")
             url=yturl
         elif type=="query":
             try:
-                msg = await message.reply_animation(TGGIF, caption="🔎")
+                msg = await message.reply_photo(TGPIC, caption="🔎")
                 ytquery=ysearch
                 results = YoutubeSearch(ytquery, max_results=1).to_dict()
                 url = f"https://youtube.com{results[0]['url_suffix']}"
