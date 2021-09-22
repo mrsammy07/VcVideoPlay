@@ -120,9 +120,9 @@ async def add_to_playlist(_, message: Message):
         await delete(msg)
     pl=await get_playlist_str()
     if message.chat.type == "private":
-        await message.reply_animation(TGGIF, caption=pl, reply_markup=await get_buttons() ,disable_web_page_preview=True)        
+        await message.reply_photo(TGPIC, caption=pl, reply_markup=await get_buttons() ,disable_web_page_preview=True)        
     elif not Config.LOG_GROUP and message.chat.type == "supergroup":
-        await message.reply_animation(TGGIF, caption=pl, disable_web_page_preview=True, reply_markup=await get_buttons())          
+        await message.reply_photo(TGPIC, caption=pl, disable_web_page_preview=True, reply_markup=await get_buttons())          
     for track in Config.playlist[:2]:
         await download(track)
 
