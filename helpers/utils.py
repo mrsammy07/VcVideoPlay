@@ -17,7 +17,7 @@ from datetime import datetime
 from pytgcalls import PyTgCalls
 from pytgcalls import StreamType
 from youtube_dl import YoutubeDL
-from user import group_call, USER
+from pmpermit.user import group_call, USER
 from pytgcalls.types import Update
 from wrapt_timeout_decorator import timeout
 from pyrogram.raw.types import InputChannel
